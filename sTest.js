@@ -10,7 +10,7 @@ var server = http.createServer((req, res) => {
 	//console.log(urlArr.pathname);
 	if(urlArr.pathname.split(".")[1] == "html" || urlArr.pathname.split(".")[1] == "js")
 	{
-		var content = fs.readFileSync("./" + urlArr.pathname,"utf8");
+		var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname),"utf8");
 		res.end(content);
 		
 	}
@@ -24,7 +24,7 @@ var server = http.createServer((req, res) => {
 	{	
 		//console.log(urlArr.pathname.split(".")[1]);
 		res.setHeader("Content-Type","image/jpeg");
-		var content = fs.readFileSync(__dirname + "\\" + urlArr.pathname,"binary");
+		var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname) + urlArr.pathname,"binary");
 		res.writeHead(200,"Ok");
 		res.write(content,"binary");
 		res.end();
