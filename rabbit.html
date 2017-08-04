@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>caramel</title>
+    <script type="text/javascript" src="caramel/libs/threejs/three.js"></script>
+	<script type="text/javascript" src="caramel/libs/CaramelMan.js"></script>
+	<script type="text/javascript" src="caramel/libs/threejs/jquery.js"></script>
+	<script type="text/javascript" src="caramel/libs/ServerRoom.js"></script>
+	<script type="text/javascript" src="caramel/libs/xml/json2xml.js"></script>
+	<script type="text/javascript" src="caramel/libs/xml/xml2json.js"></script>
+	<script type="text/javascript" src="caramel/libs/event/EventTarget.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+		.divcss5-b{ width:1280px; height:80px; float:left;  margin-left:10px;overflow-y:scroll; overflow-x:scroll;} 
+    </style>
+</head>
+<body>
+
+<!-- Div which will hold the Output -->
+<div id="WebGL-output">
+<div class="divcss5-b" id="chatBox"></div>
+<input type="text" id="inputBox" size=180></input><button id="chat">send</button><button id='start'>start</button>
+</div>
+
+<button id='start'>start</button>
+
+<!-- Javascript code that runs our Three.js examples -->
+<script type="text/javascript">
+// create a scene, that will hold all our elements such as objects, cameras and lights.
+		var scene = new THREE.Scene();
+
+		// create a camera, which defines where we're looking at.
+		var camera = new THREE.PerspectiveCamera(20, screen.availWidth / screen.availHeight, 1, 100);
+
+		// create a render and set the size
+		var renderer = new THREE.WebGLRenderer();
+	$(function(){
+
+
+		// once everything is loaded, we run our Three.js stuff.
+		function init() {
+
+		   
+
+			renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+			renderer.setSize(screen.availWidth, screen.availHeight);
+			renderer.shadowMapEnabled = true;
+
+			
+			
+			
+
+			// position and point the camera to the center of the scene
+			camera.position.x = -30;
+			camera.position.y = 40;
+			camera.position.z = 30;
+			camera.lookAt(scene.position);
+
+			// add spotlight for the shadows
+			var spotLight = new THREE.SpotLight(0xffffff);
+			spotLight.position.set(-40, 60, -10);
+			spotLight.castShadow = true;
+			scene.add(spotLight);
+
+			// add the output of the renderer to the html element
+			document.getElementById("WebGL-output").appendChild(renderer.domElement);
+
+			// call the render function
+		   
+			//caramelMan.rotation();
+			//renderer.render(scene, camera);
+			
+			var player = new CaramelMan("rabbit");
+			
+			//scene.add(caramelMan.display);
+			
+			
+			var serverRoom = new ServerRoom(player);
+			
+			$("#start").click(
+				function(){
+					var startHeartbeat = setInterval(serverRoom.start,2000);
+					
+					
+				}
+			);
+			
+			$("#chat").click(
+				function(){
+					var content = $("#inputBox").val();
+					$("#inputBox").val("");
+					serverRoom.charaChat(content,"chatBox");
+				}
+			);
+			
+		
+			//caramelMan.walk(true);
+			
+			//serverRoom.stopHeartbeat();
+			//var param = "{dfaf:dfaf,dafa:daf}";
+			//alert(param.match("GET.*HTTP.*")==null);
+		}
+
+		window.onload = init;
+	});
+	
+	
+
+</script>
+</body>
+</html>
