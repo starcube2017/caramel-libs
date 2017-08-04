@@ -40,7 +40,7 @@ function ServerRoom(player){
 	}
 	function connect(){
 		
-		$.post("http://127.0.0.1:80",serverRoom.command.heartbeat,function(data){
+		$.post("https://caraq.herokuapp.com",serverRoom.command.heartbeat,function(data){
 			
 			
 		})
@@ -60,7 +60,7 @@ function ServerRoom(player){
 		
 		$.ajax({
 			type: 'POST',
-			url: "http://localhost:80/CHARA_CHAT",
+			url: "https://caraq.herokuapp.com/CHARA_CHAT",
 			data: dataCommand,
 			success: function(data){
 				$("#" + divId).html(data);	
@@ -80,7 +80,7 @@ function ServerRoom(player){
 		
 		$.ajax({
 			type: 'POST',
-			url: "http://localhost:80/ADD_CHARA",
+			url: "https://caraq.herokuapp.com/ADD_CHARA",
 			data: dataCommand,
 			success: function(data){
 					var data = data.slice(1,-1);
@@ -107,7 +107,7 @@ function ServerRoom(player){
 	function start(){
 		var commandJsonText = serverRoom.convertCommandToJsonText(serverRoom.command.start);
 		
-		$.post("http://localhost:80/START",commandJsonText,function(d){
+		$.post("https://caraq.herokuapp.com/START",commandJsonText,function(d){
 					var data = d.split("@@")[0];
 						data = data.slice(1,-1);
 					var xmldom = parseXml(data),
@@ -191,7 +191,7 @@ function ServerRoom(player){
 		
 			var dataCommand = commandJsonText.slice(0,-1) + "," + caramelMan.convertToJsonText().slice(1,-1) + "}";
 			
-			$.post("http://localhost:80/MOVE_CHARA",dataCommand,function(data){
+			$.post("https://caraq.herokuapp.com/MOVE_CHARA",dataCommand,function(data){
 					var data = data.slice(1,-1);
 					var xmldom = parseXml(data),
 						x = xmldom.documentElement.childNodes;
@@ -219,7 +219,7 @@ function ServerRoom(player){
 		
 			var dataCommand = commandJsonText.slice(0,-1) + "," + caramelMan.convertToJsonText().slice(1,-1) + "}";
 			
-			$.post("http://localhost:80/MOVE_CHARA",dataCommand,function(data){
+			$.post("https://caraq.herokuapp.com/MOVE_CHARA",dataCommand,function(data){
 					var data = data.slice(1,-1);
 					var xmldom = parseXml(data),
 						x = xmldom.documentElement.childNodes;
@@ -247,7 +247,7 @@ function ServerRoom(player){
 		
 			var dataCommand = commandJsonText.slice(0,-1) + "," + caramelMan.convertToJsonText().slice(1,-1) + "}";
 			
-			$.post("http://localhost:80/MOVE_CHARA",dataCommand,function(data){
+			$.post("https://caraq.herokuapp.com/MOVE_CHARA",dataCommand,function(data){
 					var data = data.slice(1,-1);
 					var xmldom = parseXml(data),
 						x = xmldom.documentElement.childNodes;
@@ -276,7 +276,7 @@ function ServerRoom(player){
 		
 			var dataCommand = commandJsonText.slice(0,-1) + "," + caramelMan.convertToJsonText().slice(1,-1) + "}";
 			
-			$.post("http://localhost:80/MOVE_CHARA",dataCommand,function(data){
+			$.post("https://caraq.herokuapp.com/MOVE_CHARA",dataCommand,function(data){
 					var data = data.slice(1,-1);
 					var xmldom = parseXml(data),
 						x = xmldom.documentElement.childNodes;
