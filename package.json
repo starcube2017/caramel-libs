@@ -2,7 +2,7 @@
   "name": "caraq",
   "version": "1.0.0",
   "description": "game",
-  "main": "node sTest.js",
+  "main": "node index.js",
   "dependencies": {
     "bl": "^1.2.1",
     "http": "0.0.0",
