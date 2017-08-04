@@ -10,8 +10,7 @@ var server = http.createServer((req, res) => {
 	//console.log(urlArr.pathname);
 	if(urlArr.pathname.split(".")[1] == "html" || urlArr.pathname.split(".")[1] == "js")
 	{
-		console.log(process.cwd() + urlArr.pathname);
-		var content = fs.readFileSync(process.cwd() + urlArr.pathname,"utf8");
+		var content = fs.readFileSync("./" + urlArr.pathname,"utf8");
 		res.end(content);
 		
 	}
