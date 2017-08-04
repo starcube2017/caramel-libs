@@ -1,0 +1,31 @@
+{
+  "name": "caraq",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "sTest.js",
+  "dependencies": {
+    "bl": "^1.2.1",
+    "http": "0.0.0",
+    "hyperquest": "^2.1.2",
+    "xmldom": "^0.1.27"
+  },
+  "scripts": {
+	"start": "node sTest.js",
+    "test": "sTest.js",
+	"heroku-prebuild": "echo This runs before heroku installs your dependencies.",
+	"heroku-postbuild": "echo This runs afterwards."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starcube2017/caramel-libs.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "net88",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starcube2017/caramel-libs/issues"
+  },
+  "homepage": "https://github.com/starcube2017/caramel-libs#readme"
+}
