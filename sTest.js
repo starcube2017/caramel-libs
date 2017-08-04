@@ -1,6 +1,7 @@
 var http = require('http'),
 	url = require('url'),
 	fs = require('fs'),
+	path = require('path'),
 	DOMParser = require('xmldom').DOMParser;
 	
 var server = http.createServer((req, res) => {
@@ -9,7 +10,8 @@ var server = http.createServer((req, res) => {
 	//console.log(urlArr.pathname);
 	if(urlArr.pathname.split(".")[1] == "html" || urlArr.pathname.split(".")[1] == "js")
 	{
-		var content = fs.readFileSync(__dirname + "\\" +urlArr.pathname,"utf8");
+		console.log(process.cwd() + urlArr.pathname);
+		var content = fs.readFileSync(process.cwd() + urlArr.pathname,"utf8");
 		res.end(content);
 		
 	}
