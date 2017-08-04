@@ -1,3 +1,3 @@
-web: pig.html
+web: rabbit.html
 bash: node sTest.js
 
