@@ -9,7 +9,7 @@ var server = http.createServer((req, res) => {
 	//console.log(urlArr.pathname);
 	if(urlArr.pathname.split(".")[1] == "html" || urlArr.pathname.split(".")[1] == "js")
 	{
-		var content = fs.readFileSync(urlArr.pathname,"utf8");
+		var content = fs.readFileSync(__dirname + "\\" +urlArr.pathname,"utf8");
 		res.end(content);
 		
 	}
@@ -23,7 +23,7 @@ var server = http.createServer((req, res) => {
 	{	
 		//console.log(urlArr.pathname.split(".")[1]);
 		res.setHeader("Content-Type","image/jpeg");
-		var content = fs.readFileSync(urlArr.pathname,"binary");
+		var content = fs.readFileSync(__dirname + "\\" + urlArr.pathname,"binary");
 		res.writeHead(200,"Ok");
 		res.write(content,"binary");
 		res.end();
@@ -105,7 +105,7 @@ server.on('connection',(socket) => {
 server.on('clientError', (err, socket) => {
 	//socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
-server.listen(80,"caraq.herokuapp.com")
+server.listen(80)
 function jsonTxtTojson(txt)
 {
 	for(cName in txt)

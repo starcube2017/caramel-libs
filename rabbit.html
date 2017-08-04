@@ -4,13 +4,13 @@
 
 <head>
     <title>caramel</title>
-    <script type="text/javascript" src="caramel/libs/threejs/three.js"></script>
-	<script type="text/javascript" src="caramel/libs/CaramelMan.js"></script>
-	<script type="text/javascript" src="caramel/libs/threejs/jquery.js"></script>
-	<script type="text/javascript" src="caramel/libs/ServerRoom.js"></script>
-	<script type="text/javascript" src="caramel/libs/xml/json2xml.js"></script>
-	<script type="text/javascript" src="caramel/libs/xml/xml2json.js"></script>
-	<script type="text/javascript" src="caramel/libs/event/EventTarget.js"></script>
+    <script type="text/javascript" src="libs/threejs/three.js"></script>
+	<script type="text/javascript" src="libs/CaramelMan.js"></script>
+	<script type="text/javascript" src="libs/threejs/jquery.js"></script>
+	<script type="text/javascript" src="libs/ServerRoom.js"></script>
+	<script type="text/javascript" src="libs/xml/json2xml.js"></script>
+	<script type="text/javascript" src="libs/xml/xml2json.js"></script>
+	<script type="text/javascript" src="libs/event/EventTarget.js"></script>
     <style>
         body {
             /* set margin to 0 and overflow to hidden, to go fullscreen */
@@ -28,7 +28,8 @@
 <input type="text" id="inputBox" size=180></input><button id="chat">send</button><button id='start'>start</button>
 </div>
 
-<button id='start'>start</button>
+
+
 
 <!-- Javascript code that runs our Three.js examples -->
 <script type="text/javascript">
@@ -96,6 +97,7 @@
 					var content = $("#inputBox").val();
 					$("#inputBox").val("");
 					serverRoom.charaChat(content,"chatBox");
+					
 				}
 			);
 			
@@ -106,6 +108,8 @@
 			//var param = "{dfaf:dfaf,dafa:daf}";
 			//alert(param.match("GET.*HTTP.*")==null);
 		}
+	
+
 
 		window.onload = init;
 	});

@@ -2,7 +2,7 @@
   "name": "caraq",
   "version": "1.0.0",
   "description": "game",
-  "main": "node sTest.js",
+  "main": "sTest.js",
   "dependencies": {
     "bl": "^1.2.1",
     "http": "0.0.0",
@@ -11,7 +11,7 @@
   },
   "scripts": {
 	"start": "node sTest.js",
-    "test": "node sTest.js",
+    "test": "sTest.js",
 	"heroku-prebuild": "echo This runs before heroku installs your dependencies.",
 	"heroku-postbuild": "echo This runs afterwards."
   },

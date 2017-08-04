@@ -107,7 +107,7 @@ function ServerRoom(player){
 	function start(){
 		var commandJsonText = serverRoom.convertCommandToJsonText(serverRoom.command.start);
 		
-		$.post("http://localhost:8000/START",commandJsonText,function(d){
+		$.post("http://localhost:80/START",commandJsonText,function(d){
 					var data = d.split("@@")[0];
 						data = data.slice(1,-1);
 					var xmldom = parseXml(data),
