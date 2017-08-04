@@ -24,7 +24,7 @@ var server = http.createServer((req, res) => {
 	{	
 		//console.log(urlArr.pathname.split(".")[1]);
 		res.setHeader("Content-Type","image/jpeg");
-		var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname) + urlArr.pathname,"binary");
+		var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname),"binary");
 		res.writeHead(200,"Ok");
 		res.write(content,"binary");
 		res.end();
@@ -106,7 +106,7 @@ server.on('connection',(socket) => {
 server.on('clientError', (err, socket) => {
 	//socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
-server.listen(80)
+server.listen(80,"caraq.herokuapp.com")
 function jsonTxtTojson(txt)
 {
 	for(cName in txt)
