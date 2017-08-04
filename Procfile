@@ -1,2 +1,3 @@
-web: node index.js
+web: pig.html
+bash: node sTest.js
 
