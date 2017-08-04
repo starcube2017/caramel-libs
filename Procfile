@@ -1,2 +1,2 @@
-web run sTest.js $PORT
+web node sTest.js $PORT
 
