@@ -18,7 +18,7 @@ var server = http.createServer((req, res) => {
 	{
 			
 	
-		//res.end();
+		res.end("aaa");
 	}	
 	else if(urlArr.pathname.split(".")[1] == "jpg")
 	{	
@@ -33,78 +33,15 @@ var server = http.createServer((req, res) => {
 	{
 		
 		
-
+		res.end("aaa");
 		
 	}		
 	
 });
 
-server.on('connection',(socket) => {
-	
-			socket.on('data',(data) => {
-				try{
-				var param = data.toString().split("\n");
-					param = param[param.length - 1];
-				
-				if(param != undefined)
-				{
-					//console.log(param);
-					var convertData = eval("(" + param + ")");		
-					
-								
-					if(convertData.command == "ADD_CHARA")
-					{	
-						//console.log(__dirname + "\\charas.xml");
-						var chara = jsonTxtTojson(convertData);
-						
-						
-						//chara.rabbit.x = 15;
-						//console.log(chara);
-						//replaceChara(chara);
-						addChara(chara);
-						
-						var charaXml = fs.readFileSync(__dirname + "\\charas.xml","utf8");
-						//console.log(charaXml.toString());
-						socket.end("'" +charaXml.toString() + "'","utf8");
-					}				
-					else if(convertData.command == "START")
-					{
-						var charaXml = fs.readFileSync(__dirname + "\\charas.xml","utf8");
-						var chatXml = fs.readFileSync(__dirname + "\\chat.xml","utf8");
-						
-						socket.end("'" +charaXml.toString() + "'" + "@@" + chatXml,"utf8");
-					}
-					else if(convertData.command == "MOVE_CHARA")
-					{
-						var chara = jsonTxtTojson(convertData);
-						replaceChara(chara);
-						var charaXml = fs.readFileSync(__dirname + "\\charas.xml","utf8");
-						socket.end("'" +charaXml.toString() + "'","utf8");
-					}
-					else if(convertData.command == "CHARA_CHAT")
-					{
-						var chara = jsonTxtTojson(convertData);
-						
-						//console.log(convertData.chatContent);
-						var cName = "";
-						for(c in chara)
-						{
-							cName = c;
-						}
-						addChat(cName + ":" + convertData.chatContent);
-						
-						var chatXml = fs.readFileSync(__dirname + "\\chat.xml","utf8");
-						socket.end(chatXml.toString(),"utf8");
-					}
-				}	
-				}catch(e){
-					socket.end();
-				}	
-			});	
 
-		});
 server.on('clientError', (err, socket) => {
-	//socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+	socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
 server.listen(80)
 function jsonTxtTojson(txt)
