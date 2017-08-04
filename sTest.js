@@ -43,7 +43,7 @@ var server = http.createServer((req, res) => {
 server.on('clientError', (err, socket) => {
 	socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
-server.listen(80,"caraq.herokuapp.com")
+server.listen(80,"112.64.217.102")
 function jsonTxtTojson(txt)
 {
 	for(cName in txt)
