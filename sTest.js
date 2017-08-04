@@ -10,8 +10,8 @@ var server = http.createServer((req, res) => {
 	//console.log(urlArr.pathname);
 	if(urlArr.pathname.split(".")[1] == "html" || urlArr.pathname.split(".")[1] == "js")
 	{
-		var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname),"utf8");
-		res.end(content);
+		//var content = fs.readFileSync(path.join(__dirname, "./" + urlArr.pathname),"utf8");
+		res.end("abc");
 		
 	}
 	else if(urlArr.pathname.split(".")[1] == "ico")
@@ -106,7 +106,7 @@ server.on('connection',(socket) => {
 server.on('clientError', (err, socket) => {
 	//socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
-server.listen(80,"caraq.herokuapp.com")
+server.listen(80)
 function jsonTxtTojson(txt)
 {
 	for(cName in txt)
