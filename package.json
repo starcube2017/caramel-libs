@@ -10,7 +10,7 @@
     "xmldom": "^0.1.27"
   },
   "scripts": {
-	"start": "node sTest.js",
+	"start": "node index.js",
     "test": "sTest.js",
 	"heroku-prebuild": "echo This runs before heroku installs your dependencies.",
 	"heroku-postbuild": "echo This runs afterwards."
