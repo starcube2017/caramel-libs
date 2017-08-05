@@ -40,6 +40,6 @@ var http = require('http');
     }
   
 
- }).listen(process.env.PORT || 5000);
+ }).listen(process.argv[2] || 5000);
 
  console.log('Server running at http://127.0.0.1:5000/');
