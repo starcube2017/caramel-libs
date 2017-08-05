@@ -32,8 +32,8 @@ var server = http.createServer((req, res) => {
 	else
 	{
 		
-		
-		res.end("aaa");
+		res.writeHead(200,"Ok");
+		res.end();
 		
 	}		
 	
