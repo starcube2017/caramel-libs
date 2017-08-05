@@ -21,14 +21,14 @@ proxy.on('connect', (req, cltSocket, head) => {
 });
 
 // now that proxy is running
-proxy.listen(process.argv[2], 'localhost', () => {
+proxy.listen(process.argv[2], '127.0.0.1', () => {
 
   // make a request to a tunneling proxy
   const options = {
     port: process.argv[2],
-    hostname: 'localhost',
+    hostname: 'caraq.herokuapp.com',
     method: 'CONNECT',
-    path: 'caraq.herokuapp.com:80'
+    path: 'caraq'
   };
 
   const req = http.request(options);
